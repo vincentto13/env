@@ -5,7 +5,11 @@ sudo apt-get upgrade
 sudo apt-get install -y vim tmux htop git curl wget docker-compose zsh
 sudo apt-get autoremove -y
 
+# Install ZSH and custom plugins
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+chsh --shell /usr/bin/zsh
 
 # Cloning repository with setup
 rm -rf /tmp/env_setup
@@ -24,3 +28,4 @@ rsync -av /tmp/env_setup/bin/* ~/bin/
 
 # Install settings
 rsync -av /tmp/env_setup/etc/ ~
+
