@@ -3,7 +3,7 @@
 sudo apt-get update
 sudo apt-get upgrade
 sudo apt-get install -y vim tmux htop git curl wget docker-compose zsh
-sudo apt-get autoremove
+sudo apt-get autoremove -y
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
@@ -17,3 +17,10 @@ chmod 600 ~/.ssh/authorized_keys
 
 # Generating local key
 ssh-keygen -t rsa -b 4096 -C "`whoami`@`hostname`" -N "" -f ~/.ssh/id_rsa
+
+# Install scripts
+mkdir -p ~/bin
+rsync -av /tmp/env_setup/bin/* ~/bin
+
+# Install settings
+rsync -av /tmp/env_setup/etc/.* ~/
