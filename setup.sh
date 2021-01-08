@@ -20,7 +20,7 @@ ssh-keygen -t rsa -b 4096 -C "`whoami`@`hostname`" -N "" -f ~/.ssh/id_rsa
 
 # Install scripts
 mkdir -p ~/bin
-rsync -av /tmp/env_setup/bin/* ~/bin
+rsync -av /tmp/env_setup/bin/* ~/bin/
 
 # Install settings
-rsync -av /tmp/env_setup/etc/.* ~/
+rsync -av /tmp/env_setup/etc/ ~
