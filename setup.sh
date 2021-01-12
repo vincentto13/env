@@ -2,7 +2,7 @@
 
 sudo apt-get update
 sudo apt-get upgrade
-sudo apt-get install -y vim tmux htop git curl wget docker-compose zsh
+sudo apt-get install -y vim tmux htop git curl wget docker-compose zsh aptitude python3-dev
 sudo apt-get autoremove -y
 
 # Install ZSH and custom plugins
@@ -29,3 +29,6 @@ rsync -av /tmp/env_setup/bin/* ~/bin/
 # Install settings
 rsync -av /tmp/env_setup/etc/ ~
 
+# Setup VIM
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+vim +PluginInstall +qall
