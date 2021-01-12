@@ -1,9 +1,11 @@
 #!/usr/bin/bash
 
 sudo apt-get update
-sudo apt-get upgrade
-sudo apt-get install -y vim tmux htop git curl wget docker-compose zsh aptitude python3-dev
+sudo apt-get upgrade -y
+sudo apt-get install -y vim tmux htop git curl wget docker-compose zsh aptitude python3-dev python3 python-pip cmake g++ clang-format
 sudo apt-get autoremove -y
+
+sudo pip3 install yap
 
 # Install ZSH and custom plugins
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -32,3 +34,9 @@ rsync -av /tmp/env_setup/etc/ ~
 # Setup VIM
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim +PluginInstall +qall
+
+cwd=$(pwd)
+cd ~/.vim/bundle/YouCompleteMe
+python3 install.py --clangd-completer
+cd $cwd
+
